@@ -255,7 +255,10 @@ export const checkUserWallet = async (req, res) => {
 
     res.status(200).json({
       success: true,
-      hasWallet: !!user.stellarWallet?.publicKey,
+      message: "Wallet status checked successfully",
+      data: {
+        hasWallet: !!user.stellarWallet?.publicKey,
+      },
     });
   } catch (error) {
     logger.error("Check user wallet error:", error);
