@@ -180,6 +180,11 @@ export const getWalletBalance = async (req, res) => {
 
     res.status(200).json({
       success: true,
+      message: "Wallet balance fetched successfully",
+      data: {
+        publicKey,
+        ...balance,
+      },
       publicKey,
       ...balance,
     });
@@ -250,6 +255,7 @@ export const checkUserWallet = async (req, res) => {
       return res.status(404).json({
         success: false,
         message: "User not found",
+        data: null,
       });
     }
 
